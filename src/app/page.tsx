@@ -113,9 +113,16 @@ export default function Home() {
           <p className="flex-[0_0_160px] font-mono text-[13px] tracking-wide text-muted">02 — ABOUT</p>
           <div className="flex min-w-0 max-w-[640px] flex-[1_1_480px] flex-col gap-4">
             <p>
-              I&apos;m a software engineer in Sacramento, working mostly in Python. I&apos;m drawn to the part of AI
-              work that happens after the demo: making things reliable enough to run on a schedule with nobody
-              watching.
+              I&apos;m a software engineer from Austria, now based in Sacramento. I studied computer science in Berlin.
+            </p>
+            <p className="text-body">
+              For the last three years I worked self-employed across marketing, sales and programming. That taught me to
+              start from the problem a client actually has, and to build things people use, not just things that work in a
+              demo.
+            </p>
+            <p className="text-body">
+              Now I focus on applied AI: making LLM-powered tools reliable enough to run on a schedule with nobody watching.
+              I work mostly in Python.
             </p>
             <p className="text-body">
               <strong className="font-semibold text-ink">How I build with AI.</strong> I write core logic myself,
