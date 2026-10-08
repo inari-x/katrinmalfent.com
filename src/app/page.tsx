@@ -5,7 +5,13 @@ export default function Home() {
       <p className="mt-4 text-neutral-600">
         Software engineer building AI automations that run without babysitting.
       </p>
-      <p className="mt-2 text-neutral-500">Currently building: Release Radar.</p>
+      <p className="mt-2 text-neutral-500">
+  Currently building:{" "}
+  <a className="underline" href="https://github.com/inari-x/release-radar">
+    Release Radar
+  </a>
+  {" "}— a weekly check that tells developers which dependency updates might break their code.
+</p>
       <a className="mt-8 inline-block underline" href="mailto:katrinmalfent@gmail.com">
         Email me
       </a>
