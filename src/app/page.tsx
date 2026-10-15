@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Link from "next/link";
 
 type Project = {
   name: string;
@@ -7,6 +8,7 @@ type Project = {
   live: boolean;
   stack: string;
   codeUrl?: string;
+  caseStudyUrl?: string;
   terminal?: string;
 };
 
@@ -15,15 +17,15 @@ const projects: Project[] = [
     name: "Release Radar",
     description:
       "A weekly check that reads a project's dependencies, finds new releases, and uses an LLM to flag which changelog entries could break your code. One summary instead of a dozen ignored notifications.",
-    status: "in progress · stage 2 of 5 · 8 tests passing",
+    status: "shipped · v1.0.0 · 64 tests · runs every Monday",
     live: true,
-    stack: "Python · httpx · pytest · GitHub Actions",
+    stack: "Python · httpx · OpenAI · pytest · GitHub Actions",
     codeUrl: "https://github.com/inari-x/release-radar",
+    caseStudyUrl: "/release-radar",
     terminal: `$ python -m release_radar requirements.txt
-requests      ==2.28.0   latest 2.34.2
-flask         ==2.2.0    latest 3.1.3
-fastapi       >=0.100    latest 0.142.2
-not-a-package ==1.0      latest None`,
+requests   2.28.0 → 2.34.2   7 breaking · 1 deprecation
+flask      2.2.0 → 3.1.3     5 breaking · 2 deprecations
+fastapi    skipped (not pinned)`,
   },
   {
     name: "Agenda Watch",
@@ -69,12 +71,13 @@ export default function Home() {
           <p className="max-w-[600px] text-lg text-body">
             Python, LLMs and the unglamorous parts that make them dependable: tests, error handling, evals.
           </p>
-          <p className="flex items-center gap-2.5 font-mono text-[13px] text-body">
+          <p className="flex flex-wrap items-center gap-2.5 font-mono text-[13px] text-body">
             <StatusDot live />
-            Currently building{" "}
-            <a href="#work" className="underline">
+            Shipped{" "}
+            <Link href="/release-radar" className="underline">
               Release Radar
-            </a>
+            </Link>
+            <span className="text-faint">· next: Agenda Watch</span>
           </p>
         </section>
 
@@ -90,10 +93,11 @@ export default function Home() {
                   {project.status}
                 </p>
                 <p className="font-mono text-[13px] text-muted">{project.stack}</p>
-                {project.codeUrl && (
-                  <a href={project.codeUrl} className="self-start text-[15px] font-medium">
-                    Code ↗
-                  </a>
+                {(project.codeUrl || project.caseStudyUrl) && (
+                  <div className="flex flex-wrap gap-6 text-[15px] font-medium">
+                    {project.caseStudyUrl && <Link href={project.caseStudyUrl}>Case study →</Link>}
+                    {project.codeUrl && <a href={project.codeUrl}>Code ↗</a>}
+                  </div>
                 )}
               </div>
               {project.terminal ? (
