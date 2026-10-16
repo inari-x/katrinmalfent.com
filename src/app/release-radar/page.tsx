@@ -34,7 +34,7 @@ export default function ReleaseRadarCaseStudy() {
     <main className="mx-auto max-w-[720px] px-4 sm:px-8 pb-24 text-[17px] leading-relaxed">
       <header className="py-7 border-b border-line">
         <Link href="/" className="font-semibold no-underline">
-          ← Katrin Malfent
+          ← Katrin Malfent-Birlem
         </Link>
       </header>
 
