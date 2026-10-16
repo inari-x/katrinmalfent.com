@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Katrin Malfent",
+  title: "Katrin Malfent-Birlem",
   description: "Software engineer building AI automations",
 };
 
