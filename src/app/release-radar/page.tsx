@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Release Radar · Katrin Malfent",
+  title: "Release Radar · Katrin Malfent-Birlem",
   description:
     "Case study: a weekly LLM-powered check of Python dependencies for breaking changes.",
 };

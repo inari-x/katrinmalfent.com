@@ -10,6 +10,7 @@ type Project = {
   codeUrl?: string;
   caseStudyUrl?: string;
   terminal?: string;
+  image?: { src: string; alt: string };
 };
 
 const projects: Project[] = [
@@ -26,6 +27,19 @@ const projects: Project[] = [
 requests  2.28.0 → 2.34.2  7 breaking · 1 deprecation
 flask     2.2.0 → 3.1.3    5 breaking · 2 deprecations
 fastapi   skipped (not pinned)`,
+  },
+  {
+    name: "Stackfarm",
+    description:
+      "A cozy one-thumb idle-arcade game for iPhone: gather your harvest, stack it sky-high on your back, build, sell, and defend your farm at night. Five worlds, each with its own mini-game.",
+    status: "in App Store review · on TestFlight",
+    live: true,
+    stack: "JavaScript · Three.js · Vite · Capacitor · Supabase",
+    caseStudyUrl: "/stackfarm",
+    image: {
+      src: "/stackfarm/screen-1.jpg",
+      alt: "Stackfarm gameplay: a farmer carrying a tall stack of harvested corn past the market",
+    },
   },
   {
     name: "Agenda Watch",
@@ -100,7 +114,17 @@ export default function Home() {
                   </div>
                 )}
               </div>
-              {project.terminal ? (
+              {project.image ? (
+                <div className="flex min-w-0 justify-center lg:flex-[1_1_420px]">
+                  <img
+                    src={project.image.src}
+                    alt={project.image.alt}
+                    width={640}
+                    height={1388}
+                    className="h-auto w-full max-w-[300px] rounded-[24px] border border-line"
+                  />
+                </div>
+              ) : project.terminal ? (
                 <pre className="min-w-0 whitespace-pre-wrap break-words overflow-x-auto rounded-[10px] bg-ink p-6 font-mono text-[13px] leading-[1.9] text-[#e9e6df] lg:flex-[1_1_420px] lg:whitespace-pre">
                   {project.terminal}
                 </pre>
